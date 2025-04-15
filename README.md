@@ -1,3 +1,6 @@
+
+[screen-capture.webm](https://github.com/user-attachments/assets/044cc8b8-dac4-495f-b134-da3bf3d859ec)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
