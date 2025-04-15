@@ -1,3 +1,4 @@
+# Task Flow Frontend
 ## Demo
 
 [screen-capture (2).webm](https://github.com/user-attachments/assets/92e40e77-1e32-4559-ae04-7d88b23bb877)
@@ -38,3 +39,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## TODO & Future Enhancements                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                              
+- [ ] Add search and filtering functionality                                                                                                                                                                                        
+- [ ] Create user authentication and authorization                                                                                                                                                                                  
+- [ ] Add task sharing/collaboration features                                                                                                                                                                                       
+- [ ] Implement task reminders and notifications                                                                                                                                                                                    
+- [ ] Add dark/light theme toggle                                                                                                                                                                                                   
+- [ ] Create mobile-friendly responsive design                                                                                                                                                                                      
+- [ ] Add task export/import functionality                                                                                                                                                                                          
+- [ ] Implement task statistics and analytics  
