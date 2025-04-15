@@ -12,28 +12,25 @@ import React from 'react'
 import CancelButton from '@/components/common/buttons/cancelButton'
 import SaveButton from '@/components/common/buttons/saveButton'
 import { usePutTask } from '@/apis/tasks/putTask/usePutTask'
+import { Task } from '@/types/task'
 
 interface TaskFormData {
-  id?: string
   title: string
   description: string
   completed: boolean
 }
 
 interface TaskFormProps {
-  task?: TaskFormData
+  task?: Task
   onClose: () => void
 }
 const schema = yup.object().shape({
-  id: yup.string().nullable(),
   title: yup.string().required('Title is required'),
   description: yup.string().required('Description is required'),
-  completed: yup.boolean().nullable(),
+  completed: yup.boolean().default(false).required(),
 })
 
 const TaskForm = ({ task, onClose }: TaskFormProps) => {
-  const isEditMode = Boolean(task)
-
   const {
     control,
     handleSubmit,
@@ -65,8 +62,8 @@ const TaskForm = ({ task, onClose }: TaskFormProps) => {
   const { request: updateRequest } = usePutTask(onUpdateTaskSuccess)
 
   const onSubmit = (data: TaskFormData) => {
-    if (isEditMode) {
-      updateRequest({ ...data, id: task?.id, completed: data.completed })
+    if (task) {
+      updateRequest({ ...data, id: task.id, completed: data.completed })
     } else {
       addRequest(data)
     }
