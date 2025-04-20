@@ -1,3 +1,7 @@
+/**
+ * This file contains the Row component, which renders a flex container with row direction.
+ */
+
 import { styled } from '@mui/material'
 import { AlignItemsProperties, JustifyContentProperties } from '@/components/common/types'
 
@@ -7,6 +11,12 @@ interface RowFlexProps {
   columnGap?: number
 }
 
+/**
+ * Row component that renders a flex container with row direction.
+ *
+ * @param rowFlexProps - The props for the row component.
+ * @returns The Row component with the provided props.
+ */
 const Row = styled('div')<RowFlexProps>(({ alignItems, justify, columnGap }) => ({
   display: 'flex',
   flexDirection: 'row',
