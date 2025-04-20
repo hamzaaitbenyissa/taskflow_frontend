@@ -1,3 +1,8 @@
+/**
+ * This file contains the TaskItem component, which renders a task item with actions to update or delete the task.
+ * It also includes the useTaskActions hook for handling task actions.
+ */
+
 'use client'
 
 import { Task } from '@/types/task'
@@ -14,6 +19,12 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 import TaskForm from '@/components/taskForm'
 import { useState } from 'react'
 
+/**
+ * Hook to handle task actions such as updating and deleting a task.
+ *
+ * @param task - The task object.
+ * @returns An object containing functions to handle task click, update task, and delete task.
+ */
 const useTaskActions = (task: Task) => {
   const router = useRouter()
   const { invalidateQueries } = useInvalidateQueries()
@@ -41,6 +52,12 @@ const useTaskActions = (task: Task) => {
   return { handleTaskClick, updateTask, deleteTask }
 }
 
+/**
+ * TaskItem component that renders a task item with actions to update or delete the task.
+ *
+ * @param task - The task object to be rendered.
+ * @returns The TaskItem component with the provided task.
+ */
 export default function TaskItem({ task }: { task: Task }) {
   const [isEditMode, setIsEditMode] = useState(false)
   const { handleTaskClick, updateTask, deleteTask } = useTaskActions(task)

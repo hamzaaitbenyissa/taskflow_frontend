@@ -2,8 +2,10 @@
 import TaskDetails from '@/components/taskDetails'
 import { useParams } from 'next/navigation'
 
-export default function TaskDetailsPage() {
+const TaskDetailsPage = () => {
   const { id } = useParams()
 
   return <TaskDetails taskId={id as string} />
 }
+
+export default TaskDetailsPage

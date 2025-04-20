@@ -13,6 +13,13 @@ import PrimaryButton from '@/components/common/buttons/primaryButton'
 import { useRouter } from 'next/navigation'
 import SecondaryButton from '@/components/common/buttons/secondaryButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+
+/**
+ * TaskDetailsContent component that displays the details of a task.
+ * @param task - The task object to display.
+ * @returns {JSX.Element} The rendered TaskDetailsContent component.
+ * @constructor
+ */
 const TaskDetailsContent = ({ task }: { task: Task }) => {
   const [isEditMode, setIsEditMode] = useState(false)
 
@@ -58,6 +65,12 @@ const TaskDetailsContent = ({ task }: { task: Task }) => {
   )
 }
 
+/**
+ * TaskDetails component that displays the details of a task.
+ * @param taskId - The ID of the task to display.
+ * @returns {JSX.Element} The rendered TaskDetails component.
+ * @constructor
+ */
 const TaskDetails = ({ taskId }: { taskId: string }) => {
   const { data: task, isPending, isError } = useGetTask(taskId)
 
