@@ -1,3 +1,7 @@
+/**
+ * This file contains the TaskForm component, which renders a form for creating or updating a task.
+ */
+
 'use client'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -14,22 +18,36 @@ import SaveButton from '@/components/common/buttons/saveButton'
 import { usePutTask } from '@/apis/tasks/putTask/usePutTask'
 import { Task } from '@/types/task'
 
+/**
+ * Interface representing the form data for the task form.
+ */
 interface TaskFormData {
   title: string
   description: string
   completed: boolean
 }
 
+/**
+ * Interface representing the props for the TaskForm component.
+ */
 interface TaskFormProps {
   task?: Task
   onClose: () => void
 }
+
 const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
   description: yup.string().required('Description is required'),
   completed: yup.boolean().default(false).required(),
 })
 
+/**
+ * TaskForm component that renders a form for creating or updating a task.
+ *
+ * @param task - The task to be updated (optional).
+ * @param onClose - Callback function to be called when the form is closed.
+ * @returns The TaskForm component with the provided props.
+ */
 const TaskForm = ({ task, onClose }: TaskFormProps) => {
   const {
     control,

@@ -1,12 +1,8 @@
 /**
- * TasksRepository module provides functions to interact with the tasks API.
- *
- * This file includes methods for performing CRUD operations on tasks, such as:
- * - Fetching all tasks or a specific task by ID.
- * - Creating, updating, and deleting tasks.
- *
- * These functions use Axios for HTTP requests and return promises for handling asynchronous operations.
+ * This file contains the repository functions for managing tasks.
+ * It includes functions to get all tasks, get a single task by ID, create a new task, update an existing task, and delete a task.
  */
+
 import type { TGetTasksResponse } from './getTasks/TGetTasksResponse'
 import type { TPutTaskResponse } from './putTask/TPutTaskResponse'
 import { IGetTask, TCreateTask, TDeleteTask, TGetTasks, TUpdateTask } from './types'
@@ -16,9 +12,9 @@ import { tasksUrl } from '@/apis/urls'
 import axios from '@/lib/axios'
 
 /**
- * Fetches all tasks from the API.
+ * Fetches all tasks.
  *
- * @returns {Promise<TGetTasksResponse>} A promise that resolves to the response data containing all tasks.
+ * @returns A promise that resolves to an array of task data.
  */
 export const getTasks: TGetTasks = async () => {
   const { data }: AxiosResponse<TGetTasksResponse> = await axios.get(`${tasksUrl}`)
@@ -27,10 +23,10 @@ export const getTasks: TGetTasks = async () => {
 }
 
 /**
- * Fetches a specific task by its ID from the API.
+ * Fetches a single task by its ID.
  *
- * @param {string} id - The ID of the task to fetch.
- * @returns {Promise<TGetTasksResponse>} A promise that resolves to the response data containing the task.
+ * @param id - The ID of the task to fetch.
+ * @returns A promise that resolves to the task data.
  */
 export const getTask: IGetTask = async (id: string) => {
   const { data } = await axios.get(`${tasksUrl}/${id}`)
@@ -39,20 +35,20 @@ export const getTask: IGetTask = async (id: string) => {
 }
 
 /**
- * Creates a new task in the API.
+ * Creates a new task.
  *
- * @param {TCreateTask} createTaskRequest - The request object containing task details.
- * @returns {Promise<void>} A promise that resolves when the task is created.
+ * @param createTaskRequest - The request object containing the task data to create.
+ * @returns A promise that resolves when the task is created.
  */
 export const createTask: TCreateTask = async (createTaskRequest) => {
   await axios.post(tasksUrl, createTaskRequest)
 }
 
 /**
- * Updates an existing task in the API.
+ * Updates an existing task.
  *
- * @param {TPutTaskResponse} updateTaskRequest - The request object containing updated task details.
- * @returns {Promise<TPutTaskResponse>} A promise that resolves to the response data containing the updated task.
+ * @param updateTaskRequest - The request object containing the task data to update.
+ * @returns A promise that resolves to the updated task data.
  */
 export const updateTask: TUpdateTask = async (updateTaskRequest) => {
   const { id, ...updateTaskRequestBody } = updateTaskRequest
@@ -65,10 +61,10 @@ export const updateTask: TUpdateTask = async (updateTaskRequest) => {
 }
 
 /**
- * Deletes a task by its ID from the API.
+ * Deletes a task by its ID.
  *
- * @param {string} id - The ID of the task to delete.
- * @returns {Promise<void>} A promise that resolves when the task is deleted.
+ * @param id - The ID of the task to delete.
+ * @returns A promise that resolves when the task is deleted.
  */
 export const deleteTask: TDeleteTask = async (id) => {
   await axios.delete(`${tasksUrl}/${id}`)

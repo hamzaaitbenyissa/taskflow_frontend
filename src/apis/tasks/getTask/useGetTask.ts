@@ -1,19 +1,22 @@
+/**
+ * This file contains the hook for fetching a single task by its ID.
+ */
+
 import { useQuery } from '@tanstack/react-query'
 import { EUseQueryKeys, IQueryDescriptor } from '@/types/common'
 import { getTask } from '@/apis/tasks/TasksRepository'
 import { TGetTaskResponse } from '@/apis/tasks/getTask/TGetTaskResponse'
 
+/**
+ * Type representing the hook for fetching a single task by its ID.
+ */
 type TUseGetTask = (id: string) => IQueryDescriptor<TGetTaskResponse>
 
 /**
- * Custom hook to fetch a task by its ID.
+ * Hook to fetch a single task by its ID.
  *
- * @param {string} id - The ID of the task to fetch.
- * @returns {IQueryDescriptor<TGetTaskResponse>} - An object containing:
- *   - `data`: The fetched task data.
- *   - `isPending`: A boolean indicating if the query is in progress.
- *   - `isSuccess`: A boolean indicating if the query was successful.
- *   - `isError`: A boolean indicating if the query encountered an error.
+ * @param id - The ID of the task to fetch.
+ * @returns An object containing the task data, loading state, success state, and error state.
  */
 export const useGetTask: TUseGetTask = (id: string) => {
   const { data, isPending, isSuccess, isError } = useQuery({

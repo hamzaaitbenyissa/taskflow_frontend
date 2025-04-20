@@ -1,3 +1,7 @@
+/**
+ * This file contains the PrimaryButton component, which renders a button with primary styling.
+ */
+
 import type { ButtonProps } from '../types'
 
 import SC from './style'
@@ -5,11 +9,12 @@ import SC from './style'
 import type { FC } from 'react'
 
 type PrimaryButtonProps = ButtonProps
+
 /**
- * PrimaryButton component that renders a Material-UI Button with primary color.
- * @param value - The text to display on the button.
- * @param props - Additional props to pass to the button.
- * @constructor
+ * PrimaryButton component that renders a button with primary styling.
+ *
+ * @param props - The props for the button component.
+ * @returns The PrimaryButton component with the provided props.
  */
 const PrimaryButton: FC<PrimaryButtonProps> = ({ value, ...props }) => {
   return (

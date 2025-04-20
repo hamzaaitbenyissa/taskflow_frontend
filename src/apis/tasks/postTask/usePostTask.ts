@@ -1,3 +1,7 @@
+/**
+ * This file contains the hook for creating a new task.
+ */
+
 import { createTask } from '../TasksRepository'
 
 import type { IPostTaskRequest } from './IPostTaskRequest'
@@ -6,9 +10,10 @@ import { useMutation } from '@tanstack/react-query'
 import { UseCustomMutation } from '@/types/common'
 
 /**
- * Custom hook to post a task using react-query
- * @param onSuccess - Callback function to be called on success
- * @returns {object} - Contains data, isPending, request, isSuccess, and isError
+ * Hook to create a new task.
+ *
+ * @param onSuccess - Callback function to be called on successful task creation.
+ * @returns An object containing the task data, loading state, success state, error state, and the request function.
  */
 export const usePostTask: UseCustomMutation<void, IPostTaskRequest> = (onSuccess) => {
   const { data, isPending, mutate, isSuccess, isError } = useMutation({
