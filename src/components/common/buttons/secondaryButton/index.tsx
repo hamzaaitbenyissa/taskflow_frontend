@@ -8,7 +8,7 @@ import SC from './style'
 
 import type { FC } from 'react'
 
-type PrimaryButtonProps = ButtonProps
+type TSecondaryButtonProps = ButtonProps
 
 /**
  * SecondaryButton component that renders a button with secondary styling.
@@ -16,7 +16,7 @@ type PrimaryButtonProps = ButtonProps
  * @param props - The props for the button component.
  * @returns The SecondaryButton component with the provided props.
  */
-const SecondaryButton: FC<PrimaryButtonProps> = ({ value, ...props }) => {
+const SecondaryButton: FC<TSecondaryButtonProps> = ({ value, ...props }) => {
   return (
     <SC.Button variant="outlined" {...props} color="secondary" disableElevation>
       {value}
