@@ -21,7 +21,9 @@ export default function TaskList() {
 
   return (
     <LoadingError isLoading={isPending} isError={isError == undefined || isError}>
-      <Column rowGap={15}>{tasks?.map((task) => <TaskItem task={task} key={task.id} />)}</Column>
+      <Column rowGap={15}>
+        {tasks?.tasks.map((task) => <TaskItem task={task} key={task.id} />)}
+      </Column>
     </LoadingError>
   )
 }

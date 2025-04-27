@@ -1,3 +1,8 @@
 import { ITaskDTO } from '@/apis/tasks/types'
 
-export type TGetTasksResponse = ITaskDTO[]
+export type TGetTasksResponse = {
+  currentPage: number
+  totalPages: number
+  pageSize: number
+  tasks: ITaskDTO[]
+}
